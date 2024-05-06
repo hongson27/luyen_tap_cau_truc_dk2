@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+<script>
+function formatCash(str) {
+ 	return str.split('').reverse().reduce((prev, next, index) => {
+ 		return ((index % 3) ? next : (next + ',')) + prev
+ })
+}
+let input = +prompt('Nhap so dien tieu thu:');
+let money;
+if (input > 400){
+money = 50*1806 + 50*1866 + 100*2167 + 100*2729 + 100*3050 + (input-400)*3151;
+} else if (input >300){
+money = 50*1806 + 50*1866 + 100*2167 + 100*2729 + (input-300)*3050;
+} else if (input >200){
+money = 50*1806 + 50*1866 + 100*2167 + (input-200)*2729;
+} else if (input >100){
+money = 50*1806 + 50*1866 + (input-100)*2167;
+} else if (input > 50){
+money = 50*1806 + (input-50)*1866;
+} else {
+money = input*1806;
+}
+let money1 = money.toString();
+let money2 = formatCash(money1);
+alert('Tra tien ' + money2 + ' vnd');
+</script>
+</body>
+</html>
